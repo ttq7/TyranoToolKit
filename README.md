@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=TyranoToolKit&fontSize=58&fontColor=ffffff&animation=fadeIn&color=gradient&customColorList=6,11,20&desc=%E6%9A%B4%E9%BE%99%E7%BC%96%E8%BE%91%E5%99%A8%20HTML5%20%E6%B8%B8%E6%88%8F%20%E2%86%92%20Android%20APK&descSize=18&descY=28" width="100%"/>
 
-### 一键把暴龙编辑器（TyranoBuilder）HTML5 视觉小说打包成 Android APK
+### 一键把暴龙编辑器（TyranoBuilder）视觉小说打包成 Android APK
 
 不用手动装 Node.js、Cordova、Android SDK、JDK、Gradle——工具全部自动搞定。
 
