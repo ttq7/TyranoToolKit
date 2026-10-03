@@ -90,10 +90,6 @@
 
 ## 🚀 快速开始
 
-```text
-① 下载 exe ──► ② 双击运行 ──► ③ 依赖检测/安装 ──► ④ 扫描项目 ──► ⑤ 配置应用 ──► ⑥ 构建 APK
-```
-
 1. 从 [Releases](https://github.com/ttq7/TyranoToolKit/releases/latest) 下载 `TyranoToolKit.exe`
 2. 双击运行（绿色单文件，无需安装）
 3. 首次使用先做**依赖检测**：缺什么点什么（首次约 10 分钟，取决于网速）
