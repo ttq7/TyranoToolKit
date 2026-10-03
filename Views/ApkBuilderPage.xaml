@@ -1,0 +1,133 @@
+<Page x:Class="TyranoToolKit.Views.ApkBuilderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ctl="clr-namespace:TyranoToolKit.Controls"
+      Title="APK 打包工具" Background="{StaticResource BgBrush}">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="APK 打包工具" Style="{StaticResource HeaderTitle}"/>
+
+        <ctl:StepBar x:Name="Steps" Grid.Row="1" Margin="0,0,0,20" Height="44"/>
+
+        <Border Grid.Row="2" Background="{StaticResource BgBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+            <Grid>
+                <Grid x:Name="Step1Panel" Visibility="Visible">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" Margin="12,12,12,8">
+                        <Button x:Name="BrowseEngineBtn" Style="{StaticResource SecondaryButton}" Content="浏览..." DockPanel.Dock="Right" Margin="0,0,8,0" Click="BrowseEngineBtn_Click"/>
+                        <Button x:Name="ScanBtn" Style="{StaticResource PrimaryButton}" Content="扫描项目" DockPanel.Dock="Right" Click="ScanBtn_Click"/>
+                        <TextBlock Text="引擎项目路径（默认 Steam）：" VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <TextBlock Grid.Row="1" x:Name="EnginePathText" Margin="12,0,12,8" Foreground="{StaticResource FgMutedBrush}" Text="—" TextWrapping="Wrap"/>
+                    <DataGrid Grid.Row="2" x:Name="ProjectGrid" SelectionChanged="ProjectGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="项目名" Binding="{Binding Name}" Width="160"/>
+                            <DataGridTextColumn Header="来源" Binding="{Binding Source}" Width="80"/>
+                            <DataGridTextColumn Header="index.html" Binding="{Binding HasIndexText}" Width="80"/>
+                            <DataGridTextColumn Header="路径" Binding="{Binding Path}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <Grid x:Name="Step2Panel" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="180"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" Margin="12,12,12,8">
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                            <Button x:Name="InstallNodeBtn" Style="{StaticResource PrimaryButton}" Content="安装 Node.js" Margin="0,0,4,0" Click="InstallNodeBtn_Click"/>
+                            <Button x:Name="InstallJdkBtn" Style="{StaticResource PrimaryButton}" Content="安装 JDK" Margin="0,0,4,0" Click="InstallJdkBtn_Click"/>
+                            <Button x:Name="InstallGradleBtn" Style="{StaticResource PrimaryButton}" Content="安装 Gradle" Margin="0,0,4,0" Click="InstallGradleBtn_Click"/>
+                            <Button x:Name="InstallCordovaBtn" Style="{StaticResource PrimaryButton}" Content="安装 Cordova" Margin="0,0,4,0" Click="InstallCordovaBtn_Click"/>
+                            <Button x:Name="InstallSdkBtn" Style="{StaticResource PrimaryButton}" Content="安装 SDK" Margin="0,0,4,0" Click="InstallSdkBtn_Click"/>
+                            <Button x:Name="RecheckBtn" Style="{StaticResource SecondaryButton}" Content="重新检测" Click="RecheckBtn_Click"/>
+                        </StackPanel>
+                        <TextBlock Text="依赖检测（构建 APK 所需）" VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <StackPanel Grid.Row="1" Margin="12,0,12,8">
+                        <ProgressBar x:Name="DepProgress" Minimum="0" Maximum="100" Value="0" Height="6"/>
+                        <TextBlock x:Name="DepProgressText" Text="" FontSize="11" Foreground="{StaticResource FgMutedBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    <DataGrid Grid.Row="2" x:Name="DepGrid" Margin="12,0,12,4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="工具" Binding="{Binding Name}" Width="100"/>
+                            <DataGridTextColumn Header="状态" Binding="{Binding OkText}" Width="80"/>
+                            <DataGridTextColumn Header="版本" Binding="{Binding Version}" Width="160"/>
+                            <DataGridTextColumn Header="说明" Binding="{Binding Description}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <ctl:LogPane Grid.Row="3" x:Name="DepLog" Margin="12,0,12,12"/>
+                </Grid>
+
+                <Grid x:Name="Step3Panel" Visibility="Collapsed" Margin="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="项目名：" Style="{StaticResource FieldLabel}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="ProjNameText" Foreground="{StaticResource FgBrush}" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="应用名称：" Style="{StaticResource FieldLabel}" Margin="0,8,0,0"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="AppNameBox" Margin="0,8,0,0" Text="MyGame"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="应用 ID：" Style="{StaticResource FieldLabel}" Margin="0,8,0,0"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="AppIdBox" Margin="0,8,0,0" Text="com.example.mygame"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="版本号：" Style="{StaticResource FieldLabel}" Margin="0,8,0,0"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="AppVersionBox" Margin="0,8,0,0" Text="1.0.0"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="图标路径：" Style="{StaticResource FieldLabel}" Margin="0,8,0,0"/>
+                    <DockPanel Grid.Row="4" Grid.Column="1" Margin="0,8,0,0">
+                        <Button x:Name="BrowseIconBtn" Style="{StaticResource SecondaryButton}" Content="浏览..." DockPanel.Dock="Right" Click="BrowseIconBtn_Click"/>
+                        <TextBox x:Name="IconPathBox" Text="（可选，PNG 1024x1024）" Foreground="{StaticResource FgMutedBrush}"/>
+                    </DockPanel>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="构建类型：" Style="{StaticResource FieldLabel}" Margin="0,8,0,0"/>
+                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="0,8,0,0">
+                        <RadioButton x:Name="DebugRadio" Content="debug" IsChecked="True" VerticalAlignment="Center" Margin="0,0,16,0"/>
+                        <RadioButton x:Name="ReleaseRadio" Content="release" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid x:Name="Step4Panel" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0" Margin="12,12,12,8">
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                            <Button x:Name="OpenExportDirBtn" Style="{StaticResource SecondaryButton}" Content="打开输出目录" Margin="0,0,8,0" Click="OpenExportDirBtn_Click"/>
+                            <Button x:Name="CancelBuildBtn" Style="{StaticResource SecondaryButton}" Content="取消构建" Margin="0,0,8,0" Click="CancelBuildBtn_Click" IsEnabled="False"/>
+                            <Button x:Name="BuildBtn" Style="{StaticResource PrimaryButton}" Content="开始构建" Click="BuildBtn_Click"/>
+                        </StackPanel>
+                        <TextBlock x:Name="BuildStatusText" Text="等待构建" VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <TextBlock Grid.Row="1" x:Name="ExportDirText" Margin="12,0,12,8" Foreground="{StaticResource FgMutedBrush}" Text="APK 输出目录：—" TextWrapping="Wrap"/>
+                    <ctl:LogPane Grid.Row="2" x:Name="BuildLog" Margin="12,0,12,12"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button x:Name="PrevBtn" Style="{StaticResource SecondaryButton}" Content="上一步" Margin="0,0,8,0" Click="PrevBtn_Click" IsEnabled="False"/>
+            <Button x:Name="NextBtn" Style="{StaticResource PrimaryButton}" Content="下一步" Click="NextBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

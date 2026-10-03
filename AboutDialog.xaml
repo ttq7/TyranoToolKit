@@ -1,0 +1,50 @@
+<Window x:Class="TyranoToolKit.AboutDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="关于" Height="420" Width="480"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BgBrush}">
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="TyranoToolKit" FontSize="22" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="暴龙工具箱" FontSize="13" Foreground="{StaticResource FgMutedBrush}" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+
+        <Border Grid.Row="2" Background="{StaticResource BgAltBrush}" CornerRadius="6" Padding="16,12" Margin="0,20,0,0">
+            <TextBlock Text="制作者：hello七七" FontSize="14" HorizontalAlignment="Center"/>
+        </Border>
+
+        <StackPanel Grid.Row="3" Margin="0,12,0,0">
+            <TextBlock Text="关注作者" FontSize="12" Foreground="{StaticResource FgMutedBrush}" Margin="0,0,0,8"/>
+            <TextBlock FontSize="13" Margin="0,0,0,6">
+                <Run Text="抖音：" Foreground="{StaticResource FgMutedBrush}"/>
+                <Hyperlink NavigateUri="https://v.douyin.com/DyoqLmUzX70/" Click="Link_Click" Foreground="{StaticResource AccentBrush}"><Run Text="https://v.douyin.com/DyoqLmUzX70/"/></Hyperlink>
+            </TextBlock>
+            <TextBlock FontSize="13" Margin="0,0,0,6">
+                <Run Text="B站：" Foreground="{StaticResource FgMutedBrush}"/>
+                <Hyperlink NavigateUri="https://b23.tv/JJCvZr2" Click="Link_Click" Foreground="{StaticResource AccentBrush}"><Run Text="https://b23.tv/JJCvZr2"/></Hyperlink>
+            </TextBlock>
+            <TextBlock FontSize="13" Margin="0,0,0,6">
+                <Run Text="小红书：" Foreground="{StaticResource FgMutedBrush}"/>
+                <Hyperlink NavigateUri="https://xhslink.cn/o/6mNhC8aJf2P" Click="Link_Click" Foreground="{StaticResource AccentBrush}"><Run Text="https://xhslink.cn/o/6mNhC8aJf2P"/></Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="4" Background="{StaticResource BgAltBrush}" CornerRadius="4" Padding="12,8" Margin="0,16,0,0">
+            <TextBlock Text="Electron 下载 · APK 打包 · 一键构建" FontSize="11" Foreground="{StaticResource FgMutedBrush}" HorizontalAlignment="Center"/>
+        </Border>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource PrimaryButton}" Content="确定" Click="CloseBtn_Click" MinWidth="80"/>
+        </StackPanel>
+    </Grid>
+</Window>

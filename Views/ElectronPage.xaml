@@ -1,0 +1,59 @@
+<Page x:Class="TyranoToolKit.Views.ElectronPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ctl="clr-namespace:TyranoToolKit.Controls"
+      Title="Electron 下载管理" Background="{StaticResource BgBrush}">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="Electron 下载管理" Style="{StaticResource HeaderTitle}" VerticalAlignment="Center"/>
+            <Button x:Name="RefreshBtn" Style="{StaticResource SecondaryButton}" Content="刷新版本列表" DockPanel.Dock="Right" Click="RefreshBtn_Click"/>
+        </DockPanel>
+
+        <Border Grid.Row="1" Background="{StaticResource BgAltBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" Padding="12,8" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <TextBlock Text="缓存目录：" Style="{StaticResource FieldLabel}"/>
+                    <TextBlock x:Name="CacheDirText" Foreground="{StaticResource FgBrush}" FontFamily="Consolas, monospace" FontSize="11" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <TextBlock Text="暴龙引擎 Electron 版本：" Style="{StaticResource FieldLabel}"/>
+                    <TextBlock x:Name="EngineVerText" Foreground="{StaticResource FgBrush}" FontFamily="Consolas, monospace" FontSize="11" VerticalAlignment="Center" Text="未检测到暴龙引擎"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="下载源：" Style="{StaticResource FieldLabel}"/>
+                    <ComboBox x:Name="DownloadSourceCombo" Width="240" Margin="6,0,0,0" SelectionChanged="DownloadSourceCombo_SelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Background="{StaticResource BgBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+            <DataGrid x:Name="VersionGrid" SelectionChanged="VersionGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="版本号" Binding="{Binding Version}" Width="100"/>
+                    <DataGridTextColumn Header="类型" Binding="{Binding TypeText}" Width="80"/>
+                    <DataGridTextColumn Header="缓存" Binding="{Binding CacheText}" Width="80"/>
+                    <DataGridTextColumn Header="大小" Binding="{Binding SizeText}" Width="100"/>
+                    <DataGridTextColumn Header="状态" Binding="{Binding StageText}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <StackPanel Grid.Row="3" Margin="0,16,0,16">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <Button x:Name="DownloadBtn" Style="{StaticResource PrimaryButton}" Content="下载选中版本" Margin="0,0,8,0" Click="DownloadBtn_Click"/>
+                <Button x:Name="CancelBtn" Style="{StaticResource SecondaryButton}" Content="取消下载" Margin="0,0,8,0" Click="CancelBtn_Click"/>
+                <Button x:Name="SetEngineBtn" Style="{StaticResource PrimaryButton}" Content="设为暴龙引擎使用版本" Margin="0,0,8,0" Click="SetEngineBtn_Click"/>
+                <Button x:Name="RemoveBtn" Style="{StaticResource SecondaryButton}" Content="删除缓存" Click="RemoveBtn_Click"/>
+            </StackPanel>
+            <ProgressBar x:Name="DownloadProgress" Minimum="0" Maximum="100" Value="0"/>
+            <TextBlock x:Name="ProgressText" Foreground="{StaticResource FgMutedBrush}" FontSize="11" Margin="0,6,0,0" Text=""/>
+        </StackPanel>
+    </Grid>
+</Page>

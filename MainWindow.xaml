@@ -1,0 +1,54 @@
+<Window x:Class="TyranoToolKit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TyranoToolKit - 暴龙工具箱"
+        Height="720" Width="1100"
+        MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BgBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource BgAltBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,1,0">
+            <DockPanel LastChildFill="True">
+                <Border DockPanel.Dock="Top" Padding="20,24,20,20" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1">
+                    <StackPanel>
+                        <TextBlock Text="TyranoToolKit" FontSize="18" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="暴龙工具箱" FontSize="11" Foreground="{StaticResource FgMutedBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <Border DockPanel.Dock="Bottom" Padding="20,12" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0">
+                    <Button x:Name="AboutBtn" Style="{StaticResource SecondaryButton}" Content="关于" HorizontalAlignment="Stretch" Click="AboutBtn_Click"/>
+                </Border>
+                <ListBox x:Name="NavList" SelectionChanged="NavList_SelectionChanged" Background="Transparent" BorderThickness="0">
+                    <ListBoxItem x:Name="NavElectron" IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="⚡" FontSize="18" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="Electron 下载" FontSize="14"/>
+                                <TextBlock Text="国内镜像 · 多版本管理" FontSize="11" Foreground="{StaticResource FgMutedBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="NavApk">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="📱" FontSize="18" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="APK 打包" FontSize="14"/>
+                                <TextBlock Text="Cordova · 一键构建" FontSize="11" Foreground="{StaticResource FgMutedBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

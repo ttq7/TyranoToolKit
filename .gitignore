@@ -1,0 +1,19 @@
+# 构建产物
+bin/
+obj/
+publish/
+out/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# 运行时下载的依赖（Node/Android SDK/JDK/Gradle 等）
+node/
+android-sdk/
+jdk/
+gradle/
+cordova-workspace/
