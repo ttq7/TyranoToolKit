@@ -1,17 +1,24 @@
 <div align="center">
 
-# 🐉 TyranoToolKit
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=TyranoToolKit&fontSize=58&fontColor=ffffff&animation=fadeIn&color=gradient&customColorList=6,11,20&desc=%E6%9A%B4%E9%BE%99%E7%BC%96%E8%BE%91%E5%99%A8%20HTML5%20%E6%B8%B8%E6%88%8F%20%E2%86%92%20Android%20APK&descSize=18&descY=28" width="100%"/>
 
-**一键把暴龙编辑器（TyranoBuilder）HTML5 视觉小说打包成 Android APK**
+### 一键把暴龙编辑器（TyranoBuilder）HTML5 视觉小说打包成 Android APK
 
 不用手动装 Node.js、Cordova、Android SDK、JDK、Gradle——工具全部自动搞定。
 
-[![Release](https://img.shields.io/github/v/release/ttq7/TyranoToolKit?style=flat-square)](https://github.com/ttq7/TyranoToolKit/releases/latest)
+<a href="https://github.com/ttq7/TyranoToolKit/releases/latest">
+  <img src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC:wght@600&size=22&duration=3000&pause=1000&color=FF6EC7&center=true&vCenter=true&width=560&lines=%E2%AC%87%EF%B8%8F+%E7%82%B9%E5%87%BB%E4%B8%8A%E9%9D%A2%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%89%88+exe;%F0%9F%8C%B8+%E5%8F%AF%E7%88%B1%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%B7%B2%E5%87%86%E5%A4%87%E5%A5%BD%E5%95%A6;%F0%9F%93%A6+%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6+%C2%B7+%E5%8F%8C%E5%87%BB%E5%8D%B3%E7%94%A8;%F0%9F%94%A7+%E4%BE%9D%E8%B5%96%E5%85%A8%E8%87%AA%E5%8A%A8+%C2%B7+%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F" alt="typing"/>
+</a>
+
+[![Release](https://img.shields.io/github/v/release/ttq7/TyranoToolKit?style=flat-square&color=ff69b4)](https://github.com/ttq7/TyranoToolKit/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-9%20WPF-512BD4?style=flat-square)](https://dotnet.microsoft.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F%2011-lightgrey?style=flat-square)]()
+[![Stars](https://img.shields.io/github/stars/ttq7/TyranoToolKit?style=flat-square&color=yellow)](https://github.com/ttq7/TyranoToolKit/stargazers)
 
-**[⬇️ 下载最新版](https://github.com/ttq7/TyranoToolKit/releases/latest)** · [从源码构建](#-从源码构建) · [常见问题](#-常见问题)
+**[⬇️ 下载最新版](https://github.com/ttq7/TyranoToolKit/releases/latest)** · [快速开始](#-快速开始) · [常见问题](#-常见问题)
+
+<img src="https://count.getloli.com/get/@ttq7-TyranoToolKit?theme=moebooru" alt="访客计数" width="320"/>
 
 </div>
 
@@ -71,3 +78,17 @@ dotnet publish TyranoToolKit.csproj -c Release -o publish
 ## 📄 许可证
 
 [MIT](LICENSE) © 2026 ttq7
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&height=6&color=gradient&customColorList=6,11,20" width="100%"/>
+
+如果这个工具帮到了你，欢迎点一个 ⭐ Star～
+
+<img src="https://count.getloli.com/get/@ttq7-TyranoToolKit-footer?theme=moebooru" alt="visit" width="240"/>
+
+*Made with 🌸 by ttq7*
+
+</div>
